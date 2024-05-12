@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Groupie Tracker Filter</title>
+    <style>
+      .heading  {
+        text-align: center;
+      }
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f0f0f0;
+      }
+      div {
+        width: 80%;
+        margin: auto;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+      }
+      .memberchoose {
+        background-color: #fff;
+        margin: auto;
+        padding: 20px;
+        width: 80%;
+        box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+      }
+      label {
+        margin-top: 10px;
+      }
+      input[type="submit"] {
+        margin-top: 20px;
+        padding: 10px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+      input[type="submit"]:hover {
+        background-color: #45a049;
+      }
+    </style>
+  </head>
+
+  <body>  
+    <h1 class = "heading"> GROUPIE TRACKER SEARCH </h1>
+    <br> <br>
+    <form method = "GET" action="/filter">
+      
+
+      <div>
+        <label for="List"> Search Bar: </label>
+        <input list="List" name = "HashTableValue">
+        <datalist id="List"  >
+
+          {{ range $key, $value := .Hashtable }}
+         
+            {{ range $innerKey,$innerValue := $value }}
+                <option>{{ $innerKey }}-{{ $key }} </option> 
+            {{ end }}
+
+          {{ end }}
+
+        </datalist>
+        <br><br>
+
+        <input type="submit" value = "Submit" >
+        <br><br>
+      </div>
+
+      
+    </form>
+
+  </body>
+</html>
+

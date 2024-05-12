@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+
+
+<style>
+    
+    
+    .Heading {
+        text-align: center;
+        background-color: #333;
+        color: white;
+        padding: 10px;
+        text-align: center;
+        
+    }
+
+
+    .button-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: fit-content; /* Keeps the container size based on content */
+        margin: 0 auto; /* Centers the container horizontally */
+    }
+
+    .button-container button {
+       margin: 5px; /* Adjust spacing between buttons as needed */
+    }
+    .footer {
+        position:fixed; 
+        margin-top: 100%;
+        bottom: 0;
+        width: 100%;
+        font-size: 0.8em; /* Smaller font size for footer */
+        padding: 5px; /* Adjusted padding to minimize height */
+    }
+    .return {
+        background-color: #4CAF50; /* Green */
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 20px; /* Rounded corners for the button */
+    }
+    .header, .footer {
+        background-color: #333;
+        color: white;
+        padding: 10px;
+        text-align: center;
+    }
+
+</style>
+
+<html>
+    <body>
+
+        <h1 class = "Heading">Groupie Tracker</h1>
+
+
+             
+            
+        <div class="button-container">
+
+            <form method="GET" action="/account" >
+
+                
+                {{range $i,$image := .ImageValue1}}
+                <button class= "generate" type="submit" name = "Image_Index_Value" value = "{{$i}}">  
+                    <img  src=  {{$image}}   >  
+                </button>      
+                {{end}} 
+
+
+
+            </form>
+
+
+
+        </div>
+
+    
+        <section class="footer">
+            <form method="GET" action="/">
+                <button class="return" type="submit">Go Back</button>
+            </form>
+        </section>
+
+
+    </body>
+
+</html>
